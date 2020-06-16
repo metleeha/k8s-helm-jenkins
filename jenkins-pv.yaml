@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: demo-jenkins-pv # modify
+  labels:
+    type: jenkins
+spec:
+  storageClassName: default
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 8Gi
+  persistentVolumeReclaimPolicy: Retain
+  hostPath:
+    path: "/var/jenkins_home"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: demo-jenkins-pvc # modify
+  labels:
+    type: jenkins
+spec:
+  storageClassName: default
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 8Gi
