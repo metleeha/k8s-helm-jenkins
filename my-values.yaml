@@ -1,0 +1,10 @@
+master:
+  customInitContainers:
+    - name: "volume-mount-permission"
+      image: "busybox"
+      command: ["/bin/chown", "-R", "1000", "/var/jenkins_home"]
+      volumeMounts:
+        - name: "jenkins-home"
+          mountPath: "/var/jenkins_home"
+      securityContext:
+        runAsUser: 0
