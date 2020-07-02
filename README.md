@@ -93,8 +93,7 @@ helm 설치할 때 사용할 이름과 영구볼륨클레임, 서비스타입, �
 기본 바탕 [values.yaml](https://github.com/helm/charts/blob/master/stable/jenkins/values.yaml) 파일을 기준으로 플러그인 설치 등 추가 설정 사항을 변경합니다. 
 
 ```bash
-helm install demo-jenkins stable/jenkins \
---set persistence.existingClaim=false \
+helm install demo-jenkins stable/jenkins -f my-values.yaml \
 --set master.serviceType=NodePort \
 --namespace jenkins-demo
 ```
