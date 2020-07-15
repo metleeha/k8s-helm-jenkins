@@ -94,6 +94,7 @@ helm 설치할 때 사용할 이름과 영구볼륨클레임, 서비스타입, �
 
 ```bash
 helm install demo-jenkins stable/jenkins -f my-values.yaml \
+--set persistence.existingClaim=demo-jenkins-pvc \
 --set master.serviceType=NodePort \
 --namespace jenkins-demo
 ```
